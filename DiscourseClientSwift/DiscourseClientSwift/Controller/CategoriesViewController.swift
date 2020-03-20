@@ -8,10 +8,10 @@
 
 import UIKit
 
-class CategoriesViewController: UIViewController {
+final class CategoriesViewController: UIViewController {
 
-    let idCell = "idCell"
-    var categories = [Category]()
+    private let idCell = "idCell"
+    private var categories = [Category]()
 
     @IBOutlet weak var tableView: UITableView!
 
