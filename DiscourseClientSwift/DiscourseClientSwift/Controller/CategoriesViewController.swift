@@ -28,6 +28,7 @@ class CategoriesViewController: UIViewController {
         self.title = "Categories"
         self.view.backgroundColor = .black
 
+        tableView.backgroundColor = .black
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: idCell)
     }
@@ -35,8 +36,10 @@ class CategoriesViewController: UIViewController {
     private func setupData() {
         fetchData { [weak self] (result) in
             switch result {
+            case .failure(let error as CustomTypeError):
+                print(error.descripcion)
             case .failure(let error):
-                print("Error: \(error.localizedDescription)")
+                print(error.localizedDescription)
             case .success(let categories):
                 // Al acceder a self dentro de un closure si no se especifica nada lo
                 // hará de modo strong generando una referencia fuerte e impidiendo
@@ -66,24 +69,41 @@ class CategoriesViewController: UIViewController {
                 }
             }
             if let resp = response as? HTTPURLResponse {
-                if resp.statusCode == 200, let dataset = data {
-                    do {
-                        let categoriesDiscourse = try JSONDecoder().decode(CategoriesDiscourse.self, from: dataset)
-                        DispatchQueue.main.async {
-                            completion(.success(categoriesDiscourse.categoryList.categories))
+                if resp.statusCode == 200 {
+                    if let dataset = data {
+                        do {
+                            let categoriesDiscourse = try JSONDecoder().decode(CategoriesDiscourse.self, from: dataset)
+                            DispatchQueue.main.async {
+                                completion(.success(categoriesDiscourse.categoryList.categories))
+                            }
+                        } catch let errorDecoding as DecodingError {
+                            DispatchQueue.main.async {
+                                completion(.failure(errorDecoding))
+                            }
+                        } catch {
+                            DispatchQueue.main.async {
+                                completion(.failure(CustomTypeError.unknowError))
+                            }
                         }
-                    } catch let errorDecoding as DecodingError {
+                    } else {
                         DispatchQueue.main.async {
-                            completion(.failure(errorDecoding))
+                            completion(.failure(CustomTypeError.emptyData))
                         }
-                    } catch {
-                        DispatchQueue.main.async {
-                            completion(.failure(CustomTypeError.unknowError))
-                        }
+                    }
+                } else if resp.statusCode >= 400 && resp.statusCode <= 499 {
+                    DispatchQueue.main.async {
+                        completion(.failure(CustomTypeError.error400HTTP))
+                    }
+                } else if resp.statusCode >= 500 && resp.statusCode <= 599 {
+                    DispatchQueue.main.async {
+                        completion(.failure(CustomTypeError.error500HTTP))
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        completion(.failure(CustomTypeError.unknowError))
                     }
                 }
             }
-
         }
         dataTask.resume()
     }
