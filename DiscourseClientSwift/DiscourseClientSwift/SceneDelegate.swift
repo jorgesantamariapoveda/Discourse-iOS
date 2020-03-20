@@ -17,7 +17,37 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+
+        let topicsVC = TopicsViewController()
+        let categoriesVC = CategoriesViewController()
+        let usersVC = UsersViewController()
+
+        topicsVC.tabBarItem = UITabBarItem(title: "Topics", image: UIImage(systemName: "list.dash"), tag: 0)
+        categoriesVC.tabBarItem = UITabBarItem(title: "Categories", image: UIImage(systemName: "tag.fill"), tag: 1)
+        usersVC.tabBarItem = UITabBarItem(title: "Users", image: UIImage(systemName: "person.3.fill"), tag: 2)
+
+        let topicsNavigationController = UINavigationController(rootViewController: topicsVC)
+        let categoriesNavigationController = UINavigationController(rootViewController: categoriesVC)
+        let usersNavigationController = UINavigationController(rootViewController: usersVC)
+
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [
+                            topicsNavigationController,
+                            categoriesNavigationController,
+                            usersNavigationController
+        ]
+        tabBarController.tabBar.barStyle = UIBarStyle.black
+        tabBarController.tabBar.isTranslucent = false
+        tabBarController.tabBar.tintColor = UIColor(displayP3Red: 146/255.0, green: 178/255.0, blue: 121/255.0, alpha: 1.0)
+
+        // Configuración NavigationBar
+        UINavigationBar.appearance().overrideUserInterfaceStyle = .dark
+        UINavigationBar.appearance().tintColor = UIColor(displayP3Red: 255/255.0, green: 45/255.0, blue: 85/255.0, alpha: 1.0)
+
+        window = UIWindow(windowScene: windowScene)
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
