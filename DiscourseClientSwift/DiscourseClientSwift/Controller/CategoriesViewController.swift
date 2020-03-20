@@ -11,6 +11,7 @@ import UIKit
 class CategoriesViewController: UIViewController {
 
     let idCell = "idCell"
+    var categories = [Category]()
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -18,6 +19,7 @@ class CategoriesViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
+        setupData()
     }
 
     // MARK: - Setups
@@ -30,6 +32,62 @@ class CategoriesViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: idCell)
     }
 
+    private func setupData() {
+        fetchData { [weak self] (result) in
+            switch result {
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
+            case .success(let categories):
+                // Al acceder a self dentro de un closure si no se especifica nada lo
+                // hará de modo strong generando una referencia fuerte e impidiendo
+                // que ARC realice su trabajo. Con [weak self] evitamos dicho comportamiento
+                self?.categories = categories
+                self?.tableView.reloadData()
+            }
+        }
+    }
+
+    private func fetchData(completion: @escaping (Result<[Category], Error>) -> Void) {
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configuration: configuration)
+
+        guard let url = URL(string: "https://mdiscourse.keepcoding.io/categories.json") else { return }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue(apiKey, forHTTPHeaderField: "Api-Key")
+        request.addValue(apiUserName, forHTTPHeaderField: "Api-Username")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let dataTask = session.dataTask(with: request) { (data, response, error) in
+            if let err = error {
+                DispatchQueue.main.async {
+                    completion(.failure(err))
+                }
+            }
+            if let resp = response as? HTTPURLResponse {
+                if resp.statusCode == 200, let dataset = data {
+                    do {
+                        let categoriesDiscourse = try JSONDecoder().decode(CategoriesDiscourse.self, from: dataset)
+                        DispatchQueue.main.async {
+                            completion(.success(categoriesDiscourse.categoryList.categories))
+                        }
+                    } catch let errorDecoding as DecodingError {
+                        DispatchQueue.main.async {
+                            completion(.failure(errorDecoding))
+                        }
+                    } catch {
+                        DispatchQueue.main.async {
+                            completion(.failure(CustomTypeError.unknowError))
+                        }
+                    }
+                }
+            }
+
+        }
+        dataTask.resume()
+    }
+
 }
 
 // MARK: - UITableViewDataSource
@@ -37,19 +95,13 @@ class CategoriesViewController: UIViewController {
 extension CategoriesViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return categories.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: idCell, for: indexPath)
+        cell.textLabel?.text = categories[indexPath.row].name
+        return cell
     }
 
 }
-
-
-
-
-
-
-
-
