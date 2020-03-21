@@ -10,10 +10,10 @@ import UIKit
 
 final class CategoriesViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+
     private let idCell = "idCell"
     private var categories = [Category]()
-
-    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
