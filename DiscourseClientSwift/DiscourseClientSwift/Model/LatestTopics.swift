@@ -7,3 +7,21 @@
 //
 
 import Foundation
+
+// Se modela lo estrictamente necesario
+
+struct LatestTopics: Decodable {
+    let topicList: TopicList
+
+    enum CodingKeys: String, CodingKey {
+        case topicList = "topic_list"
+    }
+}
+
+struct TopicList: Decodable {
+    let topics: [Topic]
+}
+
+struct Topic: Decodable {
+    let title: String
+}

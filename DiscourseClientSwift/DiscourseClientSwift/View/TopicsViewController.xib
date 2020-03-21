@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopicsViewController" customModule="DiscourseClientSwift" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="hZu-xL-Vat" id="zsm-IT-TB7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,7 +17,19 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hZu-xL-Vat">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="hZu-xL-Vat" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="8s9-JV-ALv"/>
+                <constraint firstItem="hZu-xL-Vat" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="LO2-ug-7TZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hZu-xL-Vat" secondAttribute="trailing" id="Uay-Md-eZw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="hZu-xL-Vat" secondAttribute="bottom" id="qCV-Zx-l2H"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="133" y="154"/>
         </view>
