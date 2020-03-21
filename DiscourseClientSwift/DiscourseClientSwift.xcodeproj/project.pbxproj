@@ -12,6 +12,8 @@
 		CF2CE2282423799E007FA314 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF2CE2272423799E007FA314 /* Assets.xcassets */; };
 		CF2CE22B2423799E007FA314 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF2CE2292423799E007FA314 /* LaunchScreen.storyboard */; };
 		CF83C9222426229300BE7D48 /* LatestTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF83C9212426229300BE7D48 /* LatestTopics.swift */; };
+		CF83C92524262B1E00BE7D48 /* DetailTopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF83C92324262B1E00BE7D48 /* DetailTopicsViewController.swift */; };
+		CF83C92624262B1E00BE7D48 /* DetailTopicsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF83C92424262B1E00BE7D48 /* DetailTopicsViewController.xib */; };
 		CFD1F3832424B61000740BB9 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD1F3812424B61000740BB9 /* TopicsViewController.swift */; };
 		CFD1F3842424B61000740BB9 /* TopicsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFD1F3822424B61000740BB9 /* TopicsViewController.xib */; };
 		CFD1F3872424B62C00740BB9 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD1F3852424B62C00740BB9 /* CategoriesViewController.swift */; };
@@ -31,6 +33,8 @@
 		CF2CE22A2423799E007FA314 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF2CE22C2423799E007FA314 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF83C9212426229300BE7D48 /* LatestTopics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTopics.swift; sourceTree = "<group>"; };
+		CF83C92324262B1E00BE7D48 /* DetailTopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTopicsViewController.swift; sourceTree = "<group>"; };
+		CF83C92424262B1E00BE7D48 /* DetailTopicsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTopicsViewController.xib; sourceTree = "<group>"; };
 		CFD1F3812424B61000740BB9 /* TopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
 		CFD1F3822424B61000740BB9 /* TopicsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicsViewController.xib; sourceTree = "<group>"; };
 		CFD1F3852424B62C00740BB9 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				CFD1F3822424B61000740BB9 /* TopicsViewController.xib */,
+				CF83C92424262B1E00BE7D48 /* DetailTopicsViewController.xib */,
 				CFD1F3862424B62C00740BB9 /* CategoriesViewController.xib */,
 				CFD1F38A2424B63D00740BB9 /* UsersViewController.xib */,
 			);
@@ -109,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				CFD1F3812424B61000740BB9 /* TopicsViewController.swift */,
+				CF83C92324262B1E00BE7D48 /* DetailTopicsViewController.swift */,
 				CFD1F3852424B62C00740BB9 /* CategoriesViewController.swift */,
 				CFD1F3892424B63D00740BB9 /* UsersViewController.swift */,
 			);
@@ -178,6 +184,7 @@
 				CF2CE2282423799E007FA314 /* Assets.xcassets in Resources */,
 				CFD1F3882424B62C00740BB9 /* CategoriesViewController.xib in Resources */,
 				CFD1F3842424B61000740BB9 /* TopicsViewController.xib in Resources */,
+				CF83C92624262B1E00BE7D48 /* DetailTopicsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +199,7 @@
 				CF2CE2212423799D007FA314 /* SceneDelegate.swift in Sources */,
 				CFD1F38B2424B63D00740BB9 /* UsersViewController.swift in Sources */,
 				CF83C9222426229300BE7D48 /* LatestTopics.swift in Sources */,
+				CF83C92524262B1E00BE7D48 /* DetailTopicsViewController.swift in Sources */,
 				CFD1F3872424B62C00740BB9 /* CategoriesViewController.swift in Sources */,
 				CFD1F3832424B61000740BB9 /* TopicsViewController.swift in Sources */,
 				CFD1F38E2424C9D200740BB9 /* Constants.swift in Sources */,

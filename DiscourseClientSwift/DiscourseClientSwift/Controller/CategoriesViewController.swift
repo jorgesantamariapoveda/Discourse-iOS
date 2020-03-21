@@ -59,8 +59,8 @@ final class CategoriesViewController: UIViewController {
 
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.addValue(apiKey, forHTTPHeaderField: "Api-Key")
-        request.addValue(apiUserName, forHTTPHeaderField: "Api-Username")
+        request.addValue(kApiKey, forHTTPHeaderField: "Api-Key")
+        request.addValue(kApiUserName, forHTTPHeaderField: "Api-Username")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         let dataTask = session.dataTask(with: request) { (data, response, error) in

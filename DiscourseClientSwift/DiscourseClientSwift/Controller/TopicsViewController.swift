@@ -25,11 +25,12 @@ final class TopicsViewController: UIViewController {
     // MARK: - Setups
 
     private func setupUI() {
-        self.title = "Categories"
+        self.title = "Topics"
         self.view.backgroundColor = .black
 
         tableView.backgroundColor = .black
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: idCell)
     }
 
@@ -58,8 +59,8 @@ final class TopicsViewController: UIViewController {
 
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.addValue(apiKey, forHTTPHeaderField: "Api-Key")
-        request.addValue(apiUserName, forHTTPHeaderField: "Api-Username")
+        request.addValue(kApiKey, forHTTPHeaderField: "Api-Key")
+        request.addValue(kApiUserName, forHTTPHeaderField: "Api-Username")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         let dataTask = session.dataTask(with: request) { (data, response, error) in
@@ -125,3 +126,17 @@ extension TopicsViewController: UITableViewDataSource {
     }
 
 }
+
+// MARK: - UITableViewDelegate
+
+extension TopicsViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let topic = topics[indexPath.row]
+        let detailVC = DetailTopicsViewController()
+        detailVC.setTopic(topic)
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+
+}
+
