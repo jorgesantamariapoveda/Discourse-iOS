@@ -28,6 +28,7 @@ final class CategoriesViewController: UIViewController {
         self.title = "Categories"
         self.view.backgroundColor = .black
 
+        tableView.allowsSelection = false
         tableView.backgroundColor = .black
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: idCell)
