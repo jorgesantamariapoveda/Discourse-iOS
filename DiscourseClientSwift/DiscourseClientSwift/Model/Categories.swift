@@ -8,7 +8,9 @@
 
 import Foundation
 
-struct CategoriesDiscourse: Decodable {
+// Se modela lo estrictamente necesario
+
+struct Categories: Decodable {
     let categoryList: CategoryList
 
     enum CodingKeys: String, CodingKey {
