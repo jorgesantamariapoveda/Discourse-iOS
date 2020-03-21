@@ -72,9 +72,9 @@ final class CategoriesViewController: UIViewController {
                 if resp.statusCode == 200 {
                     if let dataset = data {
                         do {
-                            let categoriesDiscourse = try JSONDecoder().decode(CategoriesDiscourse.self, from: dataset)
+                            let categoriesResponse = try JSONDecoder().decode(Categories.self, from: dataset)
                             DispatchQueue.main.async {
-                                completion(.success(categoriesDiscourse.categoryList.categories))
+                                completion(.success(categoriesResponse.categoryList.categories))
                             }
                         } catch let errorDecoding as DecodingError {
                             DispatchQueue.main.async {
