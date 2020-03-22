@@ -69,40 +69,30 @@ final class TopicsViewController: UIViewController {
                     completion(.failure(err))
                 }
             }
-            if let resp = response as? HTTPURLResponse {
-                if resp.statusCode == 200 {
-                    if let dataset = data {
-                        do {
-                            let latestTopicsResponse = try JSONDecoder().decode(LatestTopics.self, from: dataset)
-                            DispatchQueue.main.async {
-                                completion(.success(latestTopicsResponse.topicList.topics))
-                            }
-                        } catch let errorDecoding as DecodingError {
-                            DispatchQueue.main.async {
-                                completion(.failure(errorDecoding))
-                            }
-                        } catch {
-                            DispatchQueue.main.async {
-                                completion(.failure(CustomTypeError.unknowError))
-                            }
-                        }
-                    } else {
+            if let resp = response as? HTTPURLResponse, resp.statusCode == 200 {
+                if let dataset = data {
+                    do {
+                        let latestTopicsResponse = try JSONDecoder().decode(LatestTopics.self, from: dataset)
                         DispatchQueue.main.async {
-                            completion(.failure(CustomTypeError.emptyData))
+                            completion(.success(latestTopicsResponse.topicList.topics))
                         }
-                    }
-                } else if resp.statusCode >= 400 && resp.statusCode <= 499 {
-                    DispatchQueue.main.async {
-                        completion(.failure(CustomTypeError.error400HTTP))
-                    }
-                } else if resp.statusCode >= 500 && resp.statusCode <= 599 {
-                    DispatchQueue.main.async {
-                        completion(.failure(CustomTypeError.error500HTTP))
+                    } catch let errorDecoding as DecodingError {
+                        DispatchQueue.main.async {
+                            completion(.failure(errorDecoding))
+                        }
+                    } catch {
+                        DispatchQueue.main.async {
+                            completion(.failure(CustomTypeError.unknowError))
+                        }
                     }
                 } else {
                     DispatchQueue.main.async {
-                        completion(.failure(CustomTypeError.unknowError))
+                        completion(.failure(CustomTypeError.emptyData))
                     }
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completion(.failure(CustomTypeError.responseError))
                 }
             }
         }
@@ -134,8 +124,19 @@ extension TopicsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let topic = topics[indexPath.row]
         let detailVC = DetailTopicsViewController()
+        detailVC.delegate = self
         detailVC.setTopic(topic)
-        navigationController?.pushViewController(detailVC, animated: true)
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+
+}
+
+// MARK: - DetailTopicDelegate
+
+extension TopicsViewController: DetailTopicDelegate {
+
+    func reloadLatestTopics() {
+        setupData()
     }
 
 }

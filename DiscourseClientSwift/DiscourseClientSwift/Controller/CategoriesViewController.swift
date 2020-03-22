@@ -69,39 +69,25 @@ final class CategoriesViewController: UIViewController {
                     completion(.failure(err))
                 }
             }
-            if let resp = response as? HTTPURLResponse {
-                if resp.statusCode == 200 {
-                    if let dataset = data {
-                        do {
-                            let categoriesResponse = try JSONDecoder().decode(Categories.self, from: dataset)
-                            DispatchQueue.main.async {
-                                completion(.success(categoriesResponse.categoryList.categories))
-                            }
-                        } catch let errorDecoding as DecodingError {
-                            DispatchQueue.main.async {
-                                completion(.failure(errorDecoding))
-                            }
-                        } catch {
-                            DispatchQueue.main.async {
-                                completion(.failure(CustomTypeError.unknowError))
-                            }
-                        }
-                    } else {
+            if let resp = response as? HTTPURLResponse, resp.statusCode == 200 {
+                if let dataset = data {
+                    do {
+                        let categoriesResponse = try JSONDecoder().decode(Categories.self, from: dataset)
                         DispatchQueue.main.async {
-                            completion(.failure(CustomTypeError.emptyData))
+                            completion(.success(categoriesResponse.categoryList.categories))
                         }
-                    }
-                } else if resp.statusCode >= 400 && resp.statusCode <= 499 {
-                    DispatchQueue.main.async {
-                        completion(.failure(CustomTypeError.error400HTTP))
-                    }
-                } else if resp.statusCode >= 500 && resp.statusCode <= 599 {
-                    DispatchQueue.main.async {
-                        completion(.failure(CustomTypeError.error500HTTP))
+                    } catch let errorDecoding as DecodingError {
+                        DispatchQueue.main.async {
+                            completion(.failure(errorDecoding))
+                        }
+                    } catch {
+                        DispatchQueue.main.async {
+                            completion(.failure(CustomTypeError.unknowError))
+                        }
                     }
                 } else {
                     DispatchQueue.main.async {
-                        completion(.failure(CustomTypeError.unknowError))
+                        completion(.failure(CustomTypeError.emptyData))
                     }
                 }
             }

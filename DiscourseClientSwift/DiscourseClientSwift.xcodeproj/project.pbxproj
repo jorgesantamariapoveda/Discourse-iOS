@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF13615D24276AFE007495EE /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF13615C24276AFE007495EE /* ExtensionViewController.swift */; };
 		CF2CE21F2423799D007FA314 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2CE21E2423799D007FA314 /* AppDelegate.swift */; };
 		CF2CE2212423799D007FA314 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2CE2202423799D007FA314 /* SceneDelegate.swift */; };
 		CF2CE2282423799E007FA314 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF2CE2272423799E007FA314 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF13615C24276AFE007495EE /* ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
 		CF2CE21B2423799D007FA314 /* DiscourseClientSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiscourseClientSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF2CE21E2423799D007FA314 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF2CE2202423799D007FA314 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF13615E24276B50007495EE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CF13615C24276AFE007495EE /* ExtensionViewController.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		CF2CE2122423799D007FA314 = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +86,7 @@
 		CF2CE21D2423799D007FA314 /* DiscourseClientSwift */ = {
 			isa = PBXGroup;
 			children = (
+				CF13615E24276B50007495EE /* Extension */,
 				CFD1F37E2424B55900740BB9 /* Model */,
 				CFD1F37F2424B56200740BB9 /* View */,
 				CFD1F3802424B56B00740BB9 /* Controller */,
@@ -199,6 +210,7 @@
 				CF2CE2212423799D007FA314 /* SceneDelegate.swift in Sources */,
 				CFD1F38B2424B63D00740BB9 /* UsersViewController.swift in Sources */,
 				CF83C9222426229300BE7D48 /* LatestTopics.swift in Sources */,
+				CF13615D24276AFE007495EE /* ExtensionViewController.swift in Sources */,
 				CF83C92524262B1E00BE7D48 /* DetailTopicsViewController.swift in Sources */,
 				CFD1F3872424B62C00740BB9 /* CategoriesViewController.swift in Sources */,
 				CFD1F3832424B61000740BB9 /* TopicsViewController.swift in Sources */,

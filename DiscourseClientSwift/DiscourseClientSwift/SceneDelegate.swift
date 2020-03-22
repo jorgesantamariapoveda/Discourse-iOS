@@ -39,11 +39,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         ]
         tabBarController.tabBar.barStyle = UIBarStyle.black
         tabBarController.tabBar.isTranslucent = false
-        tabBarController.tabBar.tintColor = kColorGreen
+        tabBarController.tabBar.tintColor = UIColor(displayP3Red: 146/255.0, green: 178/255.0, blue: 121/255.0, alpha: 1.0)
 
         // Configuración NavigationBar
         UINavigationBar.appearance().overrideUserInterfaceStyle = .dark
-        UINavigationBar.appearance().tintColor = kColorGreen
+        UINavigationBar.appearance().tintColor = UIColor(displayP3Red: 146/255.0, green: 178/255.0, blue: 121/255.0, alpha: 1.0)
 
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = tabBarController

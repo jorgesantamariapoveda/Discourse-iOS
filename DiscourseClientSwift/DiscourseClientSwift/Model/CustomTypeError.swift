@@ -11,18 +11,15 @@ import Foundation
 enum CustomTypeError: Error {
 
     case emptyData
-    case error400HTTP
-    case error500HTTP
+    case responseError
     case unknowError
 
     var descripcion: String {
         switch self {
         case .emptyData:
             return "🤬 Empty data"
-        case .error400HTTP:
-            return "🤬 Client Error 4xx"
-        case .error500HTTP:
-            return "🤬 Server Error 5xx"
+        case .responseError:
+            return "🤬 Response error"
         case .unknowError:
             return "🤬 Unknow error"
         }
