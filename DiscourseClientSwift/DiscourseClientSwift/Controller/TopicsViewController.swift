@@ -32,6 +32,8 @@ final class TopicsViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: idCell)
+
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTopic))
     }
 
     private func setupData() {
@@ -140,4 +142,17 @@ extension TopicsViewController: DetailTopicDelegate {
     }
 
 }
+
+extension TopicsViewController {
+
+    @objc func addTopic() {
+        let createTopicVC = CreateTopicViewController()
+        let navigationController = UINavigationController(rootViewController: createTopicVC)
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
+    }
+}
+
+
+
 

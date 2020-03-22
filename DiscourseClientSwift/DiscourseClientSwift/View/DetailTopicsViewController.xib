@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zcy-NZ-DoF">
-                    <rect key="frame" x="10" y="54" width="394" height="798"/>
+                    <rect key="frame" x="10" y="64" width="394" height="298"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upL-3o-oc6">
                             <rect key="frame" x="0.0" y="0.0" width="394" height="20.5"/>
@@ -31,7 +31,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UCQ-qz-I5f">
-                            <rect key="frame" x="0.0" y="30.5" width="394" height="697"/>
+                            <rect key="frame" x="0.0" y="30.5" width="394" height="194"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                             <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -39,14 +39,15 @@
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xg5-zR-eTp">
-                            <rect key="frame" x="0.0" y="737.5" width="394" height="20.5"/>
+                            <rect key="frame" x="0.0" y="234.5" width="394" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdR-h8-Sob">
-                            <rect key="frame" x="0.0" y="768" width="394" height="30"/>
-                            <state key="normal" title="BORRAR"/>
+                            <rect key="frame" x="0.0" y="265" width="394" height="33"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="Delete"/>
                             <connections>
                                 <action selector="deleteButtonTapped:" destination="-1" eventType="touchUpInside" id="ceQ-Df-7qq"/>
                             </connections>
@@ -56,8 +57,8 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="zcy-NZ-DoF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="F1V-Yy-KyX"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zcy-NZ-DoF" secondAttribute="bottom" constant="10" id="X8i-Fz-Kts"/>
+                <constraint firstItem="zcy-NZ-DoF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="F1V-Yy-KyX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zcy-NZ-DoF" secondAttribute="bottom" constant="500" id="X8i-Fz-Kts"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zcy-NZ-DoF" secondAttribute="trailing" constant="10" id="cDc-MC-daY"/>
                 <constraint firstItem="zcy-NZ-DoF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="l5F-d4-r3I"/>
             </constraints>

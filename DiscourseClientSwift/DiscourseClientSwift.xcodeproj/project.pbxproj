@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CF13615D24276AFE007495EE /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF13615C24276AFE007495EE /* ExtensionViewController.swift */; };
+		CF13616124278A43007495EE /* CreateTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF13615F24278A43007495EE /* CreateTopicViewController.swift */; };
+		CF13616224278A43007495EE /* CreateTopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF13616024278A43007495EE /* CreateTopicViewController.xib */; };
 		CF2CE21F2423799D007FA314 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2CE21E2423799D007FA314 /* AppDelegate.swift */; };
 		CF2CE2212423799D007FA314 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2CE2202423799D007FA314 /* SceneDelegate.swift */; };
 		CF2CE2282423799E007FA314 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF2CE2272423799E007FA314 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		CF13615C24276AFE007495EE /* ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
+		CF13615F24278A43007495EE /* CreateTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTopicViewController.swift; sourceTree = "<group>"; };
+		CF13616024278A43007495EE /* CreateTopicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateTopicViewController.xib; sourceTree = "<group>"; };
 		CF2CE21B2423799D007FA314 /* DiscourseClientSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiscourseClientSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF2CE21E2423799D007FA314 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF2CE2202423799D007FA314 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 			children = (
 				CFD1F3822424B61000740BB9 /* TopicsViewController.xib */,
 				CF83C92424262B1E00BE7D48 /* DetailTopicsViewController.xib */,
+				CF13616024278A43007495EE /* CreateTopicViewController.xib */,
 				CFD1F3862424B62C00740BB9 /* CategoriesViewController.xib */,
 				CFD1F38A2424B63D00740BB9 /* UsersViewController.xib */,
 			);
@@ -126,6 +131,7 @@
 			children = (
 				CFD1F3812424B61000740BB9 /* TopicsViewController.swift */,
 				CF83C92324262B1E00BE7D48 /* DetailTopicsViewController.swift */,
+				CF13615F24278A43007495EE /* CreateTopicViewController.swift */,
 				CFD1F3852424B62C00740BB9 /* CategoriesViewController.swift */,
 				CFD1F3892424B63D00740BB9 /* UsersViewController.swift */,
 			);
@@ -196,6 +202,7 @@
 				CFD1F3882424B62C00740BB9 /* CategoriesViewController.xib in Resources */,
 				CFD1F3842424B61000740BB9 /* TopicsViewController.xib in Resources */,
 				CF83C92624262B1E00BE7D48 /* DetailTopicsViewController.xib in Resources */,
+				CF13616224278A43007495EE /* CreateTopicViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +217,7 @@
 				CF2CE2212423799D007FA314 /* SceneDelegate.swift in Sources */,
 				CFD1F38B2424B63D00740BB9 /* UsersViewController.swift in Sources */,
 				CF83C9222426229300BE7D48 /* LatestTopics.swift in Sources */,
+				CF13616124278A43007495EE /* CreateTopicViewController.swift in Sources */,
 				CF13615D24276AFE007495EE /* ExtensionViewController.swift in Sources */,
 				CF83C92524262B1E00BE7D48 /* DetailTopicsViewController.swift in Sources */,
 				CFD1F3872424B62C00740BB9 /* CategoriesViewController.swift in Sources */,

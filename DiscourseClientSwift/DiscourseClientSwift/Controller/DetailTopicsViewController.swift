@@ -31,7 +31,11 @@ final class DetailTopicsViewController: UIViewController {
     // MARK: - Setups
 
     private func setupUI() {
-        view.backgroundColor = .black
+        self.view.backgroundColor = .black
+
+        deleteButton.layer.cornerRadius = 4.0
+        deleteButton.backgroundColor = UIColor(displayP3Red: 146/255.0, green: 178/255.0, blue: 121/255.0, alpha: 1.0)
+        deleteButton.tintColor = .white
 
         guard let topic = self.topic else { return }
         idLabel.text = "Id: \(topic.id)"

@@ -19,8 +19,8 @@ class UsersViewController: UIViewController {
     // MARK: - Setups
 
     private func setupUI() {
-        title = "Users"
-        view.backgroundColor = .black
+        self.title = "Users"
+        self.view.backgroundColor = .black
     }
 
 }
