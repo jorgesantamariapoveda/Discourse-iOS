@@ -53,6 +53,12 @@ final class TopicsViewController: UIViewController {
         }
     }
 
+}
+
+// MARK: - API operations
+
+extension TopicsViewController {
+
     private func fetchData(completion: @escaping (Result<[Topic], Error>) -> Void) {
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
@@ -135,13 +141,15 @@ extension TopicsViewController: UITableViewDelegate {
 
 // MARK: - DetailTopicDelegate
 
-extension TopicsViewController: DetailTopicDelegate {
+extension TopicsViewController: TopicDelegate {
 
     func reloadLatestTopics() {
         setupData()
     }
 
 }
+
+// MARK: - Selector
 
 extension TopicsViewController {
 
@@ -151,6 +159,7 @@ extension TopicsViewController {
         navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)
     }
+
 }
 
 
