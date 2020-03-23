@@ -51,7 +51,6 @@ final class CreateTopicViewController: UIViewController {
 extension CreateTopicViewController {
 
     private func postTopic(titulo: String, completion: @escaping (Bool) -> Void) {
-
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
 
@@ -65,7 +64,7 @@ extension CreateTopicViewController {
 
         let body: [String: Any] = [
             "title": titulo,
-            "raw": "Contenido de prueba domingo 22k2"
+            "raw": "Raw: \(titulo)"
         ]
         print(body)
 
@@ -73,58 +72,19 @@ extension CreateTopicViewController {
         request.httpBody = dataBody
 
         let dataTask = session.dataTask(with: request) { (_, response, error) in
-
-            if let resp = response as? HTTPURLResponse, resp.statusCode == 200 {
-                DispatchQueue.main.async { [weak self] in
-                    self?.showAlert(title: "Ok", message: "Código \(resp.statusCode)")
-                }
-            }
-
-            if let error = error {
-                DispatchQueue.main.async { [weak self] in
-                    self?.showAlert(title: "Error", message: error.localizedDescription)
+            if let _ = error {
+                DispatchQueue.main.async {
+                    completion(false)
                 }
                 return
             }
+            if let resp = response as? HTTPURLResponse, resp.statusCode == 200 {
+                DispatchQueue.main.async {
+                    completion(true)
+                }
+            }
         }
         dataTask.resume()
-
-
-//        let configuration = URLSessionConfiguration.default
-//        let session = URLSession(configuration: configuration)
-//
-//        guard let url = URL(string: "https://mdiscourse.keepcoding.io/posts.json") else { return }
-//
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "POST"
-//        request.addValue(kApiKey, forHTTPHeaderField: "Api-Key")
-//        request.addValue(kApiUserName, forHTTPHeaderField: "Api-Username")
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//
-//        let body: [String: Any] = [
-//            "title": "Prueba domingo 22k",
-//            "raw": "Venga, vamos"
-//        ]
-//        guard let dataBody = try? JSONSerialization.data(withJSONObject: body) else { return }
-//        request.httpBody = dataBody
-//
-//        let dataTask = session.dataTask(with: request) { (_, response, error) in
-//            if let _ = error {
-//                DispatchQueue.main.async {
-//                    completion(false)
-//                }
-//            }
-//            if let resp = response as? HTTPURLResponse, resp.statusCode == 200 {
-//                DispatchQueue.main.async {
-//                    completion(true)
-//                }
-//            } else {
-//                DispatchQueue.main.async {
-//                    completion(false)
-//                }
-//            }
-//        }
-//        dataTask.resume()
 
     }
 
