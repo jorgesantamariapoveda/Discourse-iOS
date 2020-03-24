@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol TopicDelegate {
-    func reloadLatestTopics()
-}
-
 final class DetailTopicsViewController: UIViewController {
 
     @IBOutlet weak var idLabel: UILabel!

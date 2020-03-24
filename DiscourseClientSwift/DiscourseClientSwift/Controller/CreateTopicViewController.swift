@@ -13,6 +13,8 @@ final class CreateTopicViewController: UIViewController {
     @IBOutlet weak var titleTopicTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
 
+    internal var delegate: TopicDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,6 +40,7 @@ final class CreateTopicViewController: UIViewController {
         guard let text = titleTopicTextField.text else { return }
         postTopic(titulo: text) { [weak self] (result) in
             if result == true {
+                self?.delegate?.reloadLatestTopics()
                 self?.dismiss(animated: true, completion: nil)
             } else {
                 self?.showAlert(title: "Error", message: CustomTypeError.unknowError.descripcion)

@@ -155,6 +155,7 @@ extension TopicsViewController {
 
     @objc func addTopic() {
         let createTopicVC = CreateTopicViewController()
+        createTopicVC.delegate = self
         let navigationController = UINavigationController(rootViewController: createTopicVC)
         navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)

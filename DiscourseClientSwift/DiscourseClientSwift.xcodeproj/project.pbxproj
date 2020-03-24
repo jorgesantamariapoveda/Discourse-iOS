@@ -17,6 +17,7 @@
 		CF83C9222426229300BE7D48 /* LatestTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF83C9212426229300BE7D48 /* LatestTopics.swift */; };
 		CF83C92524262B1E00BE7D48 /* DetailTopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF83C92324262B1E00BE7D48 /* DetailTopicsViewController.swift */; };
 		CF83C92624262B1E00BE7D48 /* DetailTopicsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF83C92424262B1E00BE7D48 /* DetailTopicsViewController.xib */; };
+		CFD19E5E242A01740089D278 /* TopicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD19E5D242A01740089D278 /* TopicDelegate.swift */; };
 		CFD1F3832424B61000740BB9 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD1F3812424B61000740BB9 /* TopicsViewController.swift */; };
 		CFD1F3842424B61000740BB9 /* TopicsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFD1F3822424B61000740BB9 /* TopicsViewController.xib */; };
 		CFD1F3872424B62C00740BB9 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD1F3852424B62C00740BB9 /* CategoriesViewController.swift */; };
@@ -41,6 +42,7 @@
 		CF83C9212426229300BE7D48 /* LatestTopics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTopics.swift; sourceTree = "<group>"; };
 		CF83C92324262B1E00BE7D48 /* DetailTopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTopicsViewController.swift; sourceTree = "<group>"; };
 		CF83C92424262B1E00BE7D48 /* DetailTopicsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTopicsViewController.xib; sourceTree = "<group>"; };
+		CFD19E5D242A01740089D278 /* TopicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicDelegate.swift; sourceTree = "<group>"; };
 		CFD1F3812424B61000740BB9 /* TopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
 		CFD1F3822424B61000740BB9 /* TopicsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicsViewController.xib; sourceTree = "<group>"; };
 		CFD1F3852424B62C00740BB9 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		CF2CE21D2423799D007FA314 /* DiscourseClientSwift */ = {
 			isa = PBXGroup;
 			children = (
+				CFD19E5C242A013B0089D278 /* Protocol */,
 				CF13615E24276B50007495EE /* Extension */,
 				CFD1F37E2424B55900740BB9 /* Model */,
 				CFD1F37F2424B56200740BB9 /* View */,
@@ -101,6 +104,14 @@
 				CF2CE22C2423799E007FA314 /* Info.plist */,
 			);
 			path = DiscourseClientSwift;
+			sourceTree = "<group>";
+		};
+		CFD19E5C242A013B0089D278 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				CFD19E5D242A01740089D278 /* TopicDelegate.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		CFD1F37E2424B55900740BB9 /* Model */ = {
@@ -219,6 +230,7 @@
 				CF83C9222426229300BE7D48 /* LatestTopics.swift in Sources */,
 				CF13616124278A43007495EE /* CreateTopicViewController.swift in Sources */,
 				CF13615D24276AFE007495EE /* ExtensionViewController.swift in Sources */,
+				CFD19E5E242A01740089D278 /* TopicDelegate.swift in Sources */,
 				CF83C92524262B1E00BE7D48 /* DetailTopicsViewController.swift in Sources */,
 				CFD1F3872424B62C00740BB9 /* CategoriesViewController.swift in Sources */,
 				CFD1F3832424B61000740BB9 /* TopicsViewController.swift in Sources */,
