@@ -12,6 +12,7 @@ final class CreateTopicViewController: UIViewController {
 
     @IBOutlet weak var titleTopicTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
 
     internal var delegate: TopicDelegate?
 
@@ -32,6 +33,10 @@ final class CreateTopicViewController: UIViewController {
         submitButton.layer.cornerRadius = 4.0
         submitButton.backgroundColor = UIColor(displayP3Red: 146/255.0, green: 178/255.0, blue: 121/255.0, alpha: 1.0)
         submitButton.tintColor = .white
+
+        closeButton.layer.cornerRadius = 4.0
+        closeButton.backgroundColor = .systemPink
+        closeButton.tintColor = .white
     }
 
     // MARK: - IBAction
@@ -46,6 +51,10 @@ final class CreateTopicViewController: UIViewController {
                 self?.showAlert(title: "Error", message: CustomTypeError.unknowError.descripcion)
             }
         }
+    }
+
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

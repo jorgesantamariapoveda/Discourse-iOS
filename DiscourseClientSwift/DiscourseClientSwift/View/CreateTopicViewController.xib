@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateTopicViewController" customModule="DiscourseClientSwift" customModuleProvider="target">
             <connections>
+                <outlet property="closeButton" destination="Fuv-zO-4uY" id="KPE-CK-6nY"/>
                 <outlet property="submitButton" destination="nLl-de-E6d" id="5tM-nK-VGB"/>
                 <outlet property="titleTopicTextField" destination="Oth-Gr-P9P" id="aVu-YB-lFo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -19,8 +20,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fV3-Hv-ycX">
-                    <rect key="frame" x="10" y="64" width="394" height="87"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XMS-gI-anh">
+                    <rect key="frame" x="10" y="64" width="394" height="120"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WeX-G1-mr7">
                             <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
@@ -39,11 +40,19 @@
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLl-de-E6d">
-                            <rect key="frame" x="0.0" y="54" width="394" height="33"/>
+                            <rect key="frame" x="0.0" y="44" width="394" height="33"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="Submit"/>
                             <connections>
                                 <action selector="submitButtonTapped:" destination="-1" eventType="touchUpInside" id="Ok4-b7-aIL"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fuv-zO-4uY">
+                            <rect key="frame" x="0.0" y="87" width="394" height="33"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="Close"/>
+                            <connections>
+                                <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="Qo3-q5-i6b"/>
                             </connections>
                         </button>
                     </subviews>
@@ -51,9 +60,9 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fV3-Hv-ycX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="czB-xM-Vb1"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fV3-Hv-ycX" secondAttribute="trailing" constant="10" id="eGd-aW-zOI"/>
-                <constraint firstItem="fV3-Hv-ycX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="uN8-cr-iON"/>
+                <constraint firstItem="XMS-gI-anh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="EWr-z4-3gR"/>
+                <constraint firstItem="XMS-gI-anh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="cUC-jy-lzq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XMS-gI-anh" secondAttribute="trailing" constant="10" id="pTJ-ml-cAQ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="131.8840579710145" y="153.34821428571428"/>
