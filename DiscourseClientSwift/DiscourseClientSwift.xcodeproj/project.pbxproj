@@ -27,6 +27,7 @@
 		CFD1F38E2424C9D200740BB9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD1F38D2424C9D200740BB9 /* Constants.swift */; };
 		CFD1F3902424EDFF00740BB9 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD1F38F2424EDFF00740BB9 /* Categories.swift */; };
 		CFD1F3922424EE6100740BB9 /* CustomTypeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD1F3912424EE6100740BB9 /* CustomTypeError.swift */; };
+		CFFE99DE242F6D1700D1A20B /* DirectoryItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE99DD242F6D1700D1A20B /* DirectoryItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		CFD1F38D2424C9D200740BB9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CFD1F38F2424EDFF00740BB9 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		CFD1F3912424EE6100740BB9 /* CustomTypeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTypeError.swift; sourceTree = "<group>"; };
+		CFFE99DD242F6D1700D1A20B /* DirectoryItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				CFD1F38F2424EDFF00740BB9 /* Categories.swift */,
 				CFD1F3912424EE6100740BB9 /* CustomTypeError.swift */,
 				CF83C9212426229300BE7D48 /* LatestTopics.swift */,
+				CFFE99DD242F6D1700D1A20B /* DirectoryItems.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				CF83C9222426229300BE7D48 /* LatestTopics.swift in Sources */,
 				CF13616124278A43007495EE /* CreateTopicViewController.swift in Sources */,
 				CF13615D24276AFE007495EE /* ExtensionViewController.swift in Sources */,
+				CFFE99DE242F6D1700D1A20B /* DirectoryItems.swift in Sources */,
 				CFD19E5E242A01740089D278 /* TopicDelegate.swift in Sources */,
 				CF83C92524262B1E00BE7D48 /* DetailTopicsViewController.swift in Sources */,
 				CFD1F3872424B62C00740BB9 /* CategoriesViewController.swift in Sources */,
