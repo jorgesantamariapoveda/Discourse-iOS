@@ -29,18 +29,20 @@ final class DetailTopicsViewController: UIViewController {
     private func setupUI() {
         self.view.backgroundColor = .black
 
-        deleteButton.layer.cornerRadius = 4.0
-        deleteButton.backgroundColor = UIColor(displayP3Red: 146/255.0, green: 178/255.0, blue: 121/255.0, alpha: 1.0)
-        deleteButton.tintColor = .white
-
         guard let topic = self.topic else { return }
         idLabel.text = "Id: \(topic.id)"
         titleTextView.text = "Title: \(topic.title)"
         postsCountLabel.text = "Posts count: \(topic.postsCount)"
         deleteButton.isHidden = topic.closed
+
+        deleteButton.layer.cornerRadius = 4.0
+        deleteButton.backgroundColor = UIColor(displayP3Red: 146/255.0, green: 178/255.0, blue: 121/255.0, alpha: 1.0)
+        deleteButton.tintColor = .white
     }
 
-    func setTopic(_ topic:Topic) {
+    // MARK: - Public functions
+
+    func setTopic(_ topic: Topic) {
         self.topic = topic
     }
 

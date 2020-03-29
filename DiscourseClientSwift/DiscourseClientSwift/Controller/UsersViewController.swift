@@ -8,13 +8,13 @@
 
 import UIKit
 
-class UsersViewController: UIViewController {
+final class UsersViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
     private let idCell = "idCell"
     private var directoryItems = [DirectoryItem]()
-    private let sizeImage = 75
+    private let sizeImage = 50
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -142,6 +142,16 @@ extension UsersViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(integerLiteral: sizeImage)
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let user = directoryItems[indexPath.row].user
+
+        
+        let detailVC = DetailUserViewController()
+        detailVC.setTopic(user)
+        self.navigationController?.pushViewController(detailVC, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 }

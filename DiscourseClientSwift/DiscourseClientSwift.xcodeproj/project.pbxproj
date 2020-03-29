@@ -14,6 +14,8 @@
 		CF2CE2212423799D007FA314 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2CE2202423799D007FA314 /* SceneDelegate.swift */; };
 		CF2CE2282423799E007FA314 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF2CE2272423799E007FA314 /* Assets.xcassets */; };
 		CF2CE22B2423799E007FA314 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF2CE2292423799E007FA314 /* LaunchScreen.storyboard */; };
+		CF3838E22430938E001F8FDE /* DetailUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3838E02430938E001F8FDE /* DetailUserViewController.swift */; };
+		CF3838E32430938E001F8FDE /* DetailUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF3838E12430938E001F8FDE /* DetailUserViewController.xib */; };
 		CF83C9222426229300BE7D48 /* LatestTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF83C9212426229300BE7D48 /* LatestTopics.swift */; };
 		CF83C92524262B1E00BE7D48 /* DetailTopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF83C92324262B1E00BE7D48 /* DetailTopicsViewController.swift */; };
 		CF83C92624262B1E00BE7D48 /* DetailTopicsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF83C92424262B1E00BE7D48 /* DetailTopicsViewController.xib */; };
@@ -40,6 +42,8 @@
 		CF2CE2272423799E007FA314 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF2CE22A2423799E007FA314 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF2CE22C2423799E007FA314 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF3838E02430938E001F8FDE /* DetailUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUserViewController.swift; sourceTree = "<group>"; };
+		CF3838E12430938E001F8FDE /* DetailUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailUserViewController.xib; sourceTree = "<group>"; };
 		CF83C9212426229300BE7D48 /* LatestTopics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTopics.swift; sourceTree = "<group>"; };
 		CF83C92324262B1E00BE7D48 /* DetailTopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTopicsViewController.swift; sourceTree = "<group>"; };
 		CF83C92424262B1E00BE7D48 /* DetailTopicsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTopicsViewController.xib; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 				CF13616024278A43007495EE /* CreateTopicViewController.xib */,
 				CFD1F3862424B62C00740BB9 /* CategoriesViewController.xib */,
 				CFD1F38A2424B63D00740BB9 /* UsersViewController.xib */,
+				CF3838E12430938E001F8FDE /* DetailUserViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 				CF13615F24278A43007495EE /* CreateTopicViewController.swift */,
 				CFD1F3852424B62C00740BB9 /* CategoriesViewController.swift */,
 				CFD1F3892424B63D00740BB9 /* UsersViewController.swift */,
+				CF3838E02430938E001F8FDE /* DetailUserViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -216,6 +222,7 @@
 				CFD1F3882424B62C00740BB9 /* CategoriesViewController.xib in Resources */,
 				CFD1F3842424B61000740BB9 /* TopicsViewController.xib in Resources */,
 				CF83C92624262B1E00BE7D48 /* DetailTopicsViewController.xib in Resources */,
+				CF3838E32430938E001F8FDE /* DetailUserViewController.xib in Resources */,
 				CF13616224278A43007495EE /* CreateTopicViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF2CE21F2423799D007FA314 /* AppDelegate.swift in Sources */,
+				CF3838E22430938E001F8FDE /* DetailUserViewController.swift in Sources */,
 				CF2CE2212423799D007FA314 /* SceneDelegate.swift in Sources */,
 				CFD1F38B2424B63D00740BB9 /* UsersViewController.swift in Sources */,
 				CF83C9222426229300BE7D48 /* LatestTopics.swift in Sources */,

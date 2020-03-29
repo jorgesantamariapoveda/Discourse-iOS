@@ -135,6 +135,7 @@ extension TopicsViewController: UITableViewDelegate {
         detailVC.delegate = self
         detailVC.setTopic(topic)
         self.navigationController?.pushViewController(detailVC, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 }
