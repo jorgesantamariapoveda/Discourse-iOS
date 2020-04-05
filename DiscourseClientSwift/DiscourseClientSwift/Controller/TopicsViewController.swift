@@ -80,7 +80,7 @@ extension TopicsViewController {
             if let resp = response as? HTTPURLResponse, resp.statusCode == 200 {
                 if let dataset = data {
                     do {
-                        let latestTopicsResponse = try JSONDecoder().decode(LatestTopics.self, from: dataset)
+                        let latestTopicsResponse = try JSONDecoder().decode(LatestTopicsResponse.self, from: dataset)
                         DispatchQueue.main.async {
                             completion(.success(latestTopicsResponse.topicList.topics))
                         }

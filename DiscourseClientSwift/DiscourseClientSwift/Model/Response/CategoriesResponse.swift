@@ -10,7 +10,7 @@ import Foundation
 
 // Se modela lo estrictamente necesario
 
-struct Categories: Decodable {
+struct CategoriesResponse: Decodable {
     let categoryList: CategoryList
 
     enum CodingKeys: String, CodingKey {

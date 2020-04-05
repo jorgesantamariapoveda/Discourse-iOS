@@ -10,7 +10,7 @@ import Foundation
 
 // Se modela lo estrictamente necesario
 
-struct LatestTopics: Decodable {
+struct LatestTopicsResponse: Decodable {
     let topicList: TopicList
 
     enum CodingKeys: String, CodingKey {

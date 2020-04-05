@@ -42,14 +42,18 @@ final class CreateTopicViewController: UIViewController {
     // MARK: - IBAction
 
     @IBAction func submitButtonTapped(_ sender: Any) {
-        guard let text = titleTopicTextField.text else { return }
-        postTopic(titulo: text) { [weak self] (result) in
-            if result == true {
-                self?.delegate?.reloadLatestTopics()
-                self?.dismiss(animated: true, completion: nil)
-            } else {
-                self?.showAlert(title: "POST", message: CustomTypeError.unknowError.descripcion)
+        guard let tituloTopic = titleTopicTextField.text else { return }
+        if tituloTopic.count > 0 {
+            postTopic(titulo: tituloTopic) { [weak self] (result) in
+                if result == true {
+                    self?.delegate?.reloadLatestTopics()
+                    self?.dismiss(animated: true, completion: nil)
+                } else {
+                    self?.showAlert(title: "POST", message: CustomTypeError.unknowError.descripcion)
+                }
             }
+        } else {
+            showAlert(title: "👀", message: "Title is empty")
         }
     }
 
@@ -93,6 +97,10 @@ extension CreateTopicViewController {
             if let resp = response as? HTTPURLResponse, resp.statusCode == 200 {
                 DispatchQueue.main.async {
                     completion(true)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completion(false)
                 }
             }
         }

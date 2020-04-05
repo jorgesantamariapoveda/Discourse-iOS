@@ -112,9 +112,9 @@ extension DetailUserViewController {
             if let resp = response as? HTTPURLResponse, resp.statusCode == 200 {
                 if let dataset = data {
                     do {
-                        let dataDecode = try JSONDecoder().decode(UserDetail.self, from: dataset)
+                        let userResponse = try JSONDecoder().decode(UserResponse.self, from: dataset)
                         DispatchQueue.main.async {
-                            completion(.success(dataDecode.user))
+                            completion(.success(userResponse.user))
                         }
                     } catch let errorDecoding as DecodingError {
                         DispatchQueue.main.async {
@@ -155,7 +155,6 @@ extension DetailUserViewController {
         let body: [String: Any] = [
             "name": newName
         ]
-        print(body)
 
         guard let dataBody = try? JSONSerialization.data(withJSONObject: body) else { return }
         request.httpBody = dataBody

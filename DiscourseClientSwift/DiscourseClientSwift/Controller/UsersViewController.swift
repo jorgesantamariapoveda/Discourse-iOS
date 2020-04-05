@@ -78,9 +78,9 @@ extension UsersViewController {
             if let resp = response as? HTTPURLResponse, resp.statusCode == 200 {
                 if let dataset = data {
                     do {
-                        let dataDecode = try JSONDecoder().decode(DirectoryItems.self, from: dataset)
+                        let directoryItemsResponse = try JSONDecoder().decode(DirectoryItemsResponse.self, from: dataset)
                         DispatchQueue.main.async {
-                            completion(.success(dataDecode.directoryItems))
+                            completion(.success(directoryItemsResponse.directoryItems))
                         }
                     } catch let errorDecoding as DecodingError {
                         DispatchQueue.main.async {

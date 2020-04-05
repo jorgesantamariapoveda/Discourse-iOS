@@ -10,7 +10,7 @@ import Foundation
 
 // Se modela lo estrictamente necesario
 
-struct DirectoryItems: Decodable {
+struct DirectoryItemsResponse: Decodable {
     let directoryItems: [DirectoryItem]
 
     enum CodingKeys: String, CodingKey {
