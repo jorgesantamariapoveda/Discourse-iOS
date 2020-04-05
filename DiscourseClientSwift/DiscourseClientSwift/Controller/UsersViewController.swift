@@ -36,7 +36,7 @@ final class UsersViewController: UIViewController {
     }
 
     private func setupData() {
-        fetchData { [weak self] (result) in
+        getUsers { [weak self] (result) in
             switch result {
             case .failure(let error as CustomTypeError):
                 print(error.descripcion)
@@ -57,7 +57,7 @@ final class UsersViewController: UIViewController {
 
 extension UsersViewController {
 
-    private func fetchData(completion: @escaping (Result<[DirectoryItem], Error>) -> Void) {
+    private func getUsers(completion: @escaping (Result<[DirectoryItem], Error>) -> Void) {
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
 
@@ -130,9 +130,11 @@ extension UsersViewController: UITableViewDataSource {
             let data = try? Data.init(contentsOf: urlAvatar)
 
             DispatchQueue.main.async {
-                let image = UIImage(data: data!)
-                cell.imageView?.image = image
-                cell.setNeedsLayout()
+                if let data = data {
+                    let image = UIImage(data: data)
+                    cell.imageView?.image = image
+                    cell.setNeedsLayout()
+                }
             }
         }
 

@@ -30,6 +30,9 @@ final class DetailUserViewController: UIViewController {
     private func setupUI() {
         self.view.backgroundColor = .black
 
+        nameLabel.isHidden = true
+        nameTextField.isHidden = true
+
         updateButton.isHidden = true
         updateButton.layer.cornerRadius = 4.0
         updateButton.backgroundColor = UIColor(displayP3Red: 146/255.0, green: 178/255.0, blue: 121/255.0, alpha: 1.0)
@@ -39,7 +42,7 @@ final class DetailUserViewController: UIViewController {
     private func setupData() {
         guard let userName = self.userName else { return }
         userNameLabel.text = "Username: \(userName)"
-        fetchData(userName: userName) { [weak self] (resul) in
+        getUser(userName: userName) { [weak self] (resul) in
             switch resul {
             case .failure(let error):
                 print(error.localizedDescription)
@@ -47,15 +50,15 @@ final class DetailUserViewController: UIViewController {
                 print(user)
                 self?.idLabel.text = "Id: \(user.id)"
                 if user.canEditName == true {
+                    self?.nameLabel.isHidden = true
                     self?.nameTextField.isHidden = false
                     self?.nameTextField.text = user.name
                     self?.updateButton.isHidden = false
-                    self?.nameLabel.isHidden = true
                 } else {
-                    self?.nameTextField.isHidden = true
-                    self?.updateButton.isHidden = true
                     self?.nameLabel.isHidden = false
                     self?.nameLabel.text = "Name: \(user.name)"
+                    self?.nameTextField.isHidden = true
+                    self?.updateButton.isHidden = true
                 }
             }
         }
@@ -71,7 +74,14 @@ final class DetailUserViewController: UIViewController {
     // MARK: - IBActions
 
     @IBAction func updateButtonTapped(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        guard let name = nameTextField.text else { return }
+        putNameToUserName(newName: name, userName: userName) { [weak self] (resul) in
+            if resul == true {
+                self?.showAlert(title: "PUT", message: "Name actualizado con éxito")
+            } else {
+                self?.showAlert(title: "PUT", message: "Error")
+            }
+        }
     }
 
 }
@@ -80,7 +90,7 @@ final class DetailUserViewController: UIViewController {
 
 extension DetailUserViewController {
 
-    private func fetchData(userName: String, completion: @escaping (Result<User, Error>) -> Void) {
+    private func getUser(userName: String, completion: @escaping (Result<User, Error>) -> Void) {
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
 
@@ -129,6 +139,43 @@ extension DetailUserViewController {
         dataTask.resume()
     }
 
+    private func putNameToUserName(newName: String, userName: String, completion: @escaping (Bool) -> Void) {
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configuration: configuration)
+
+        let urlString = "https://mdiscourse.keepcoding.io/users/\(userName).json"
+        guard let url = URL(string: urlString) else { return }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.addValue(kApiKey, forHTTPHeaderField: "Api-Key")
+        request.addValue(kApiUserName, forHTTPHeaderField: "Api-Username")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let body: [String: Any] = [
+            "name": newName
+        ]
+        print(body)
+
+        guard let dataBody = try? JSONSerialization.data(withJSONObject: body) else { return }
+        request.httpBody = dataBody
+
+        let dataTask = session.dataTask(with: request) { (_, response, error) in
+            if let _ = error {
+                DispatchQueue.main.async {
+                    completion(false)
+                }
+                return
+            }
+            if let resp = response as? HTTPURLResponse, resp.statusCode == 200 {
+                DispatchQueue.main.async {
+                    completion(true)
+                }
+            }
+        }
+        dataTask.resume()
+    }
+    
 }
 
 

@@ -35,7 +35,7 @@ final class CategoriesViewController: UIViewController {
     }
 
     private func setupData() {
-        fetchData { [weak self] (result) in
+        getCategories { [weak self] (result) in
             switch result {
             case .failure(let error as CustomTypeError):
                 print(error.descripcion)
@@ -51,7 +51,7 @@ final class CategoriesViewController: UIViewController {
         }
     }
 
-    private func fetchData(completion: @escaping (Result<[Category], Error>) -> Void) {
+    private func getCategories(completion: @escaping (Result<[Category], Error>) -> Void) {
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
 

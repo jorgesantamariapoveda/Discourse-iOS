@@ -37,7 +37,7 @@ final class TopicsViewController: UIViewController {
     }
 
     private func setupData() {
-        fetchData { [weak self] (result) in
+        getLatestTopics { [weak self] (result) in
             switch result {
             case .failure(let error as CustomTypeError):
                 print(error.descripcion)
@@ -59,7 +59,7 @@ final class TopicsViewController: UIViewController {
 
 extension TopicsViewController {
 
-    private func fetchData(completion: @escaping (Result<[Topic], Error>) -> Void) {
+    private func getLatestTopics(completion: @escaping (Result<[Topic], Error>) -> Void) {
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
 
@@ -131,10 +131,12 @@ extension TopicsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let topic = topics[indexPath.row]
+
         let detailVC = DetailTopicsViewController()
         detailVC.delegate = self
         detailVC.setTopic(topic)
-        self.navigationController?.pushViewController(detailVC, animated: true)
+
+        navigationController?.pushViewController(detailVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 

@@ -48,7 +48,7 @@ final class CreateTopicViewController: UIViewController {
                 self?.delegate?.reloadLatestTopics()
                 self?.dismiss(animated: true, completion: nil)
             } else {
-                self?.showAlert(title: "Error", message: CustomTypeError.unknowError.descripcion)
+                self?.showAlert(title: "POST", message: CustomTypeError.unknowError.descripcion)
             }
         }
     }
@@ -97,7 +97,6 @@ extension CreateTopicViewController {
             }
         }
         dataTask.resume()
-
     }
 
 }

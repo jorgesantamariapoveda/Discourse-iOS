@@ -55,7 +55,7 @@ final class DetailTopicsViewController: UIViewController {
                 self?.delegate?.reloadLatestTopics()
                 self?.navigationController?.popViewController(animated: true)
             } else {
-                self?.showAlert(title: "Error", message: CustomTypeError.unknowError.descripcion)
+                self?.showAlert(title: "DELETE", message: CustomTypeError.unknowError.descripcion)
             }
         }
     }
