@@ -125,9 +125,12 @@ extension UsersViewController: UITableViewDataSource {
             let avatar = user.avatar.replacingOccurrences(of: "{size}", with: String(self!.sizeImage))
             let pathAvatar = "https://mdiscourse.keepcoding.io\(avatar)"
             guard let urlAvatar = URL(string: pathAvatar) else { return }
+
+            // Aquí se produce realmente el proceso costoso
             let data = try? Data.init(contentsOf: urlAvatar)
-            let image = UIImage(data: data!)
+
             DispatchQueue.main.async {
+                let image = UIImage(data: data!)
                 cell.imageView?.image = image
                 cell.setNeedsLayout()
             }
@@ -149,7 +152,7 @@ extension UsersViewController: UITableViewDelegate {
 
         
         let detailVC = DetailUserViewController()
-        detailVC.setTopic(user)
+        detailVC.setUsername(user.username)
         self.navigationController?.pushViewController(detailVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }

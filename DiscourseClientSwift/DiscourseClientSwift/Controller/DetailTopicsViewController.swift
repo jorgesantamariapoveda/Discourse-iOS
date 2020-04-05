@@ -15,7 +15,7 @@ final class DetailTopicsViewController: UIViewController {
     @IBOutlet weak var postsCountLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
 
-    private var topic: Topic?
+    private var topic: Topic!
     internal var delegate: TopicDelegate?
 
     override func viewDidLoad() {

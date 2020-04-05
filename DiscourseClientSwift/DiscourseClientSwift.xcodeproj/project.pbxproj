@@ -19,6 +19,7 @@
 		CF83C9222426229300BE7D48 /* LatestTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF83C9212426229300BE7D48 /* LatestTopics.swift */; };
 		CF83C92524262B1E00BE7D48 /* DetailTopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF83C92324262B1E00BE7D48 /* DetailTopicsViewController.swift */; };
 		CF83C92624262B1E00BE7D48 /* DetailTopicsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF83C92424262B1E00BE7D48 /* DetailTopicsViewController.xib */; };
+		CFA6EE402439DEE8007E80A4 /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA6EE3F2439DEE8007E80A4 /* UserDetail.swift */; };
 		CFD19E5E242A01740089D278 /* TopicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD19E5D242A01740089D278 /* TopicDelegate.swift */; };
 		CFD1F3832424B61000740BB9 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD1F3812424B61000740BB9 /* TopicsViewController.swift */; };
 		CFD1F3842424B61000740BB9 /* TopicsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFD1F3822424B61000740BB9 /* TopicsViewController.xib */; };
@@ -47,12 +48,13 @@
 		CF83C9212426229300BE7D48 /* LatestTopics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTopics.swift; sourceTree = "<group>"; };
 		CF83C92324262B1E00BE7D48 /* DetailTopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTopicsViewController.swift; sourceTree = "<group>"; };
 		CF83C92424262B1E00BE7D48 /* DetailTopicsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTopicsViewController.xib; sourceTree = "<group>"; };
+		CFA6EE3F2439DEE8007E80A4 /* UserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
 		CFD19E5D242A01740089D278 /* TopicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicDelegate.swift; sourceTree = "<group>"; };
 		CFD1F3812424B61000740BB9 /* TopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
 		CFD1F3822424B61000740BB9 /* TopicsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicsViewController.xib; sourceTree = "<group>"; };
 		CFD1F3852424B62C00740BB9 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		CFD1F3862424B62C00740BB9 /* CategoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesViewController.xib; sourceTree = "<group>"; };
-		CFD1F3892424B63D00740BB9 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		CFD1F3892424B63D00740BB9 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		CFD1F38A2424B63D00740BB9 /* UsersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersViewController.xib; sourceTree = "<group>"; };
 		CFD1F38D2424C9D200740BB9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CFD1F38F2424EDFF00740BB9 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				CFD1F3912424EE6100740BB9 /* CustomTypeError.swift */,
 				CF83C9212426229300BE7D48 /* LatestTopics.swift */,
 				CFFE99DD242F6D1700D1A20B /* DirectoryItems.swift */,
+				CFA6EE3F2439DEE8007E80A4 /* UserDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				CFD1F3872424B62C00740BB9 /* CategoriesViewController.swift in Sources */,
 				CFD1F3832424B61000740BB9 /* TopicsViewController.swift in Sources */,
 				CFD1F38E2424C9D200740BB9 /* Constants.swift in Sources */,
+				CFA6EE402439DEE8007E80A4 /* UserDetail.swift in Sources */,
 				CFD1F3902424EDFF00740BB9 /* Categories.swift in Sources */,
 				CFD1F3922424EE6100740BB9 /* CustomTypeError.swift in Sources */,
 			);

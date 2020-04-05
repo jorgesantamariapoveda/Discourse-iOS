@@ -19,19 +19,15 @@ struct DirectoryItems: Decodable {
 }
 
 struct DirectoryItem: Decodable {
-    let user: User
+    let user: UserDirectoryItem
 }
 
-struct User: Decodable {
-    let id: Int
+struct UserDirectoryItem: Decodable {
     let username: String
-    let name: String?
     let avatar: String
 
     enum CodingKeys: String, CodingKey {
-        case id
         case username
-        case name
         case avatar = "avatar_template"
     }
 }
