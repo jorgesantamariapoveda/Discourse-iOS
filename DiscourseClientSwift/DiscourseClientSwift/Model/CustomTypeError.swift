@@ -9,7 +9,6 @@
 import Foundation
 
 enum CustomTypeError: Error {
-
     case emptyData
     case responseError
     case unknowError
@@ -17,11 +16,11 @@ enum CustomTypeError: Error {
     var descripcion: String {
         switch self {
         case .emptyData:
-            return "🤬 Empty data"
+            return "👮🏻‍♂️ Empty data"
         case .responseError:
-            return "🤬 Response error"
+            return "👨🏼‍🎤 Response error"
         case .unknowError:
-            return "🤬 Unknow error"
+            return "🧟‍♂️ Unknow error"
         }
     }
 }

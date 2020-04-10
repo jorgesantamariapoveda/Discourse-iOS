@@ -10,6 +10,8 @@ import UIKit
 
 final class DetailTopicsViewController: UIViewController {
 
+    // MARK: - Propierties
+
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var postsCountLabel: UILabel!
@@ -18,39 +20,54 @@ final class DetailTopicsViewController: UIViewController {
     private var topic: Topic!
     internal var delegate: TopicDelegate?
 
+    // MARK: - Basic functions
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
     }
+}
 
-    // MARK: - Setups
+// MARK: - Setups
+
+extension DetailTopicsViewController {
 
     private func setupUI() {
-        self.view.backgroundColor = .black
+
+        deleteButton.layer.cornerRadius = 4.0
+        deleteButton.backgroundColor = UIColor(displayP3Red: 146/255.0, green: 178/255.0, blue: 121/255.0, alpha: 1.0)
+        deleteButton.tintColor = .white
 
         guard let topic = self.topic else { return }
         idLabel.text = "Id: \(topic.id)"
         titleTextView.text = "Title: \(topic.title)"
         postsCountLabel.text = "Posts count: \(topic.postsCount)"
         deleteButton.isHidden = topic.closed
-
-        deleteButton.layer.cornerRadius = 4.0
-        deleteButton.backgroundColor = UIColor(displayP3Red: 146/255.0, green: 178/255.0, blue: 121/255.0, alpha: 1.0)
-        deleteButton.tintColor = .white
     }
 
-    // MARK: - Public functions
+}
+
+// MARK: - Public functions
+
+extension DetailTopicsViewController {
 
     func setTopic(_ topic: Topic) {
         self.topic = topic
     }
 
-    // MARK: - IBAction
+}
+
+// MARK: - IBAction
+
+extension DetailTopicsViewController {
 
     @IBAction func deleteButtonTapped(_ sender: Any) {
         guard let id = topic?.id else { return }
         deleteTopic(id: id) { [weak self] (result) in
+            // Al acceder a self dentro de un closure si no se especifica nada lo
+            // hará de modo strong generando una referencia fuerte e impidiendo
+            // que ARC realice su trabajo. Con [weak self] evitamos dicho comportamiento
             if result == true {
                 self?.delegate?.reloadLatestTopics()
                 self?.navigationController?.popViewController(animated: true)

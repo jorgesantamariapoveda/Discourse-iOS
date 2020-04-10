@@ -10,10 +10,14 @@ import UIKit
 
 final class CategoriesViewController: UIViewController {
 
+    // MARK: - Propierties
+
     @IBOutlet weak var tableView: UITableView!
 
     private let idCell = "idCell"
     private var categories = [Category]()
+
+    // MARK: - Basic functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,35 +25,41 @@ final class CategoriesViewController: UIViewController {
         setupUI()
         setupData()
     }
+}
 
-    // MARK: - Setups
+// MARK: - Setups
+
+extension CategoriesViewController {
 
     private func setupUI() {
         self.title = "Categories"
-        self.view.backgroundColor = .black
 
         tableView.allowsSelection = false
-        tableView.backgroundColor = .black
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: idCell)
     }
 
     private func setupData() {
         getCategories { [weak self] (result) in
+            // Al acceder a self dentro de un closure si no se especifica nada lo
+            // hará de modo strong generando una referencia fuerte e impidiendo
+            // que ARC realice su trabajo. Con [weak self] evitamos dicho comportamiento
             switch result {
             case .failure(let error as CustomTypeError):
                 print(error.descripcion)
             case .failure(let error):
                 print(error.localizedDescription)
             case .success(let categories):
-                // Al acceder a self dentro de un closure si no se especifica nada lo
-                // hará de modo strong generando una referencia fuerte e impidiendo
-                // que ARC realice su trabajo. Con [weak self] evitamos dicho comportamiento
                 self?.categories = categories
                 self?.tableView.reloadData()
             }
         }
     }
+}
+
+// MARK: - API operations
+
+extension CategoriesViewController {
 
     private func getCategories(completion: @escaping (Result<[Category], Error>) -> Void) {
         let configuration = URLSessionConfiguration.default

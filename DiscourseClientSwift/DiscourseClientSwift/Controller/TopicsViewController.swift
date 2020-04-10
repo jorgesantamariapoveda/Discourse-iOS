@@ -10,10 +10,14 @@ import UIKit
 
 final class TopicsViewController: UIViewController {
 
+    // MARK: - Propierties
+
     @IBOutlet weak var tableView: UITableView!
-    
+
     private let idCell = "idCell"
     private var topics = [Topic]()
+
+    // MARK: - Basic functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,14 +25,15 @@ final class TopicsViewController: UIViewController {
         setupUI()
         setupData()
     }
+}
 
-    // MARK: - Setups
+// MARK: - Setups
+
+extension TopicsViewController {
 
     private func setupUI() {
         self.title = "Topics"
-        self.view.backgroundColor = .black
 
-        tableView.backgroundColor = .black
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: idCell)
@@ -36,17 +41,26 @@ final class TopicsViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTopic))
     }
 
+    @objc private func addTopic() {
+        let createTopicVC = CreateTopicViewController()
+        createTopicVC.delegate = self
+
+        let navigationController = UINavigationController(rootViewController: createTopicVC)
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
+    }
+
     private func setupData() {
         getLatestTopics { [weak self] (result) in
+            // Al acceder a self dentro de un closure si no se especifica nada lo
+            // hará de modo strong generando una referencia fuerte e impidiendo
+            // que ARC realice su trabajo. Con [weak self] evitamos dicho comportamiento
             switch result {
             case .failure(let error as CustomTypeError):
                 print(error.descripcion)
             case .failure(let error):
                 print(error.localizedDescription)
             case .success(let topics):
-                // Al acceder a self dentro de un closure si no se especifica nada lo
-                // hará de modo strong generando una referencia fuerte e impidiendo
-                // que ARC realice su trabajo. Con [weak self] evitamos dicho comportamiento
                 self?.topics = topics
                 self?.tableView.reloadData()
             }
@@ -151,21 +165,3 @@ extension TopicsViewController: TopicDelegate {
     }
 
 }
-
-// MARK: - Selector
-
-extension TopicsViewController {
-
-    @objc func addTopic() {
-        let createTopicVC = CreateTopicViewController()
-        createTopicVC.delegate = self
-        let navigationController = UINavigationController(rootViewController: createTopicVC)
-        navigationController.modalPresentationStyle = .fullScreen
-        self.present(navigationController, animated: true, completion: nil)
-    }
-
-}
-
-
-
-

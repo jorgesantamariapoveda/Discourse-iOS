@@ -10,6 +10,8 @@ import UIKit
 
 final class DetailUserViewController: UIViewController {
 
+    // MARK: - Propierties
+
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -18,18 +20,21 @@ final class DetailUserViewController: UIViewController {
 
     private var userName: String!
 
+    // MARK: - Basic functions
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
         setupData()
     }
+}
 
-    // MARK: - Setups
+// MARK: - Setups
+
+extension DetailUserViewController {
 
     private func setupUI() {
-        self.view.backgroundColor = .black
-
         nameLabel.isHidden = true
         nameTextField.isHidden = true
 
@@ -43,6 +48,9 @@ final class DetailUserViewController: UIViewController {
         guard let userName = self.userName else { return }
         userNameLabel.text = "Username: \(userName)"
         getUser(userName: userName) { [weak self] (resul) in
+            // Al acceder a self dentro de un closure si no se especifica nada lo
+            // hará de modo strong generando una referencia fuerte e impidiendo
+            // que ARC realice su trabajo. Con [weak self] evitamos dicho comportamiento
             switch resul {
             case .failure(let error):
                 print(error.localizedDescription)
@@ -62,16 +70,21 @@ final class DetailUserViewController: UIViewController {
                 }
             }
         }
-
     }
+}
 
-    // MARK: - Public functions
+// MARK: - Public functions
+
+extension DetailUserViewController {
 
     func setUsername(_ userName: String) {
         self.userName = userName
     }
+}
 
-    // MARK: - IBActions
+// MARK: - IBActions
+
+extension DetailUserViewController {
 
     @IBAction func updateButtonTapped(_ sender: UIButton) {
         guard let name = nameTextField.text else { return }

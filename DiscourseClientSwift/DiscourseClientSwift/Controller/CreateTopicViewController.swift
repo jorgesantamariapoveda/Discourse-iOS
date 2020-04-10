@@ -10,23 +10,29 @@ import UIKit
 
 final class CreateTopicViewController: UIViewController {
 
+    // MARK: - Propierties
+
     @IBOutlet weak var titleTopicTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
 
     internal var delegate: TopicDelegate?
 
+    // MARK: - Basic functions
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
     }
+}
 
-    // MARK: - Setup
+// MARK: - Setup
+
+extension CreateTopicViewController {
 
     private func setupUI() {
         self.navigationItem.title = "Create"
-        self.view.backgroundColor = .black
 
         titleTopicTextField.placeholder = "Type a title..."
 
@@ -38,13 +44,19 @@ final class CreateTopicViewController: UIViewController {
         closeButton.backgroundColor = .systemPink
         closeButton.tintColor = .white
     }
+}
 
-    // MARK: - IBAction
+// MARK: - IBAction
+
+extension CreateTopicViewController {
 
     @IBAction func submitButtonTapped(_ sender: Any) {
         guard let tituloTopic = titleTopicTextField.text else { return }
         if tituloTopic.count > 0 {
             postTopic(titulo: tituloTopic) { [weak self] (result) in
+                // Al acceder a self dentro de un closure si no se especifica nada lo
+                // hará de modo strong generando una referencia fuerte e impidiendo
+                // que ARC realice su trabajo. Con [weak self] evitamos dicho comportamiento
                 if result == true {
                     self?.delegate?.reloadLatestTopics()
                     self?.dismiss(animated: true, completion: nil)
@@ -82,7 +94,6 @@ extension CreateTopicViewController {
             "title": titulo,
             "raw": "Raw: \(titulo)"
         ]
-        print(body)
 
         guard let dataBody = try? JSONSerialization.data(withJSONObject: body) else { return }
         request.httpBody = dataBody

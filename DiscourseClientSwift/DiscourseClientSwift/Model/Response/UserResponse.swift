@@ -8,12 +8,13 @@
 
 import Foundation
 
+// Se modela lo estrictamente necesario
+
 struct UserResponse: Decodable {
     let user: User
 }
 
 struct User: Decodable {
-
     let id: Int
     let username: String
     let name: String

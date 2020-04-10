@@ -10,11 +10,15 @@ import UIKit
 
 final class UsersViewController: UIViewController {
 
+    // MARK: - Propierties
+
     @IBOutlet weak var tableView: UITableView!
 
     private let idCell = "idCell"
     private var directoryItems = [DirectoryItem]()
     private let sizeImage = 50
+
+    // MARK: - Basic functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +26,15 @@ final class UsersViewController: UIViewController {
         setupUI()
         setupData()
     }
+}
 
-    // MARK: - Setups
+// MARK: - Setups
+
+extension UsersViewController {
 
     private func setupUI() {
         self.title = "Users"
-        self.view.backgroundColor = .black
 
-        tableView.backgroundColor = .black
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: idCell)
@@ -37,15 +42,15 @@ final class UsersViewController: UIViewController {
 
     private func setupData() {
         getUsers { [weak self] (result) in
+            // Al acceder a self dentro de un closure si no se especifica nada lo
+            // hará de modo strong generando una referencia fuerte e impidiendo
+            // que ARC realice su trabajo. Con [weak self] evitamos dicho comportamiento
             switch result {
             case .failure(let error as CustomTypeError):
                 print(error.descripcion)
             case .failure(let error):
                 print(error.localizedDescription)
             case .success(let directoryItems):
-                // Al acceder a self dentro de un closure si no se especifica nada lo
-                // hará de modo strong generando una referencia fuerte e impidiendo
-                // que ARC realice su trabajo. Con [weak self] evitamos dicho comportamiento
                 self?.directoryItems = directoryItems
                 self?.tableView.reloadData()
             }
@@ -152,9 +157,9 @@ extension UsersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = directoryItems[indexPath.row].user
 
-        
         let detailVC = DetailUserViewController()
         detailVC.setUsername(user.username)
+        
         self.navigationController?.pushViewController(detailVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
