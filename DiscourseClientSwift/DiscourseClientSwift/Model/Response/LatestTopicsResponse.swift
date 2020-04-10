@@ -26,12 +26,10 @@ struct Topic: Decodable {
     let id: Int
     let title: String
     let postsCount: Int
-    let closed: Bool
 
     enum CodingKeys: String, CodingKey {
         case id
         case title
         case postsCount = "posts_count"
-        case closed
     }
 }
