@@ -16,13 +16,11 @@ struct UserResponse: Decodable {
 
 struct User: Decodable {
     let id: Int
-    let username: String
     let name: String
     let canEditName: Bool
 
     enum CodingKeys: String, CodingKey {
         case id
-        case username
         case name
         case canEditName = "can_edit_name"
     }
