@@ -52,7 +52,10 @@ extension CreateTopicViewController {
 
     @IBAction func submitButtonTapped(_ sender: Any) {
         guard let tituloTopic = titleTopicTextField.text else { return }
-        if tituloTopic.count > 0 {
+        /*
+         isEmpty es una comprobación más eficiente que calcular el número de caracteres.
+         */
+        if !tituloTopic.isEmpty {
             postTopic(titulo: tituloTopic) { [weak self] (result) in
                 // Al acceder a self dentro de un closure si no se especifica nada lo
                 // hará de modo strong generando una referencia fuerte e impidiendo
