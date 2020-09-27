@@ -9,7 +9,7 @@ Cliente básico para iOS en Swift para el API discourse.org
 
   -- UIStackView
 
-  -- Design Patterns: MVC, Result Pattern, Singleton, Delegate
+  -- Design Patterns: MVC, Result Pattern
 
 - Documentation: https://docs.discourse.org
 
