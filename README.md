@@ -6,10 +6,15 @@ Cliente básico para iOS en Swift para el API discourse.org
 
 - Xcode
 - Swift
+
   -- UIStackView
+
   -- Design Patterns: MVC, Result Pattern, Singleton, Delegate
+
 - Documentation: https://docs.discourse.org
+
   -- API Key is necessary
+
   -- Instancia del servicio: https://mdiscourse.keepcoding.io
 
 ## Especificaciones
@@ -17,4 +22,4 @@ Cliente básico para iOS en Swift para el API discourse.org
 - GET: obtener listado de _Categories_
 - PUT: "bookmarkear" un _Topic_
 - DELETE: borrar un _Topic_
-- POST: invitar a un *User" a un *Topic\*
+- POST: invitar a un _User_ a un _Topic_
