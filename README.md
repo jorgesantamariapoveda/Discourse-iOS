@@ -1,21 +1,12 @@
-# 02 Concurrencia y red en iOS
-
+## Objetivo
 Cliente básico para iOS en Swift para el API discourse.org
-
-## Tecnologías
 
 - Xcode
 - Swift
-
-  -- UIStackView
-
-  -- Design Patterns: MVC, Result Pattern
-
-- Documentation: https://docs.discourse.org
-
-  -- API Key is necessary
-
-  -- Instancia del servicio: https://mdiscourse.keepcoding.io
+- UIStackView
+- MVC, Result Pattern
+- [Discourse API](https://docs.discourse.org/) API Key is necessary
+- Instancia del servicio: https://mdiscourse.keepcoding.io
 
 ## Especificaciones
 
